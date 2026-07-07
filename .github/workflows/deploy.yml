@@ -35,10 +35,13 @@ jobs:
       run: python generate_static.py
       
     - name: 📤 Deploy
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cp -r docs/* .
         git config --global user.name "GitHub Actions"
         git config --global user.email "github-actions@github.com"
+        git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
         git add .
         git commit -m "🚀 Deploy site" || exit 0
         git push
