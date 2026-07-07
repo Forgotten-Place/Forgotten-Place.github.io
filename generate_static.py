@@ -13,7 +13,15 @@ class StaticSiteGenerator:
         """Настройка маршрутов Flask"""
         @self.app.route('/')
         def index():
-            return render_template('base.html')
+            return render_template('base.html', active_page='index')
+        
+        @self.app.route('/predystoriya')
+        def predystoriya():
+            return render_template('predystoriya.html', active_page='predystoriya')
+        
+        @self.app.route('/lor-chernovodska')
+        def lor_chernovodska():
+            return render_template('lor_chernovodska.html', active_page='lor_chernovodska')
     
     def clean_output_dir(self):
         """Очистка выходной директории"""
@@ -43,7 +51,9 @@ class StaticSiteGenerator:
     def generate_pages(self):
         """Генерация всех страниц"""
         pages_config = [
-            ('index.html', 'base.html', {})
+            ('index.html', 'base.html', {'active_page': 'index'}),
+            ('predystoriya.html', 'predystoriya.html', {'active_page': 'predystoriya'}),
+            ('lor-chernovodska.html', 'lor_chernovodska.html', {'active_page': 'lor_chernovodska'}),
         ]
         
         with self.app.test_request_context():

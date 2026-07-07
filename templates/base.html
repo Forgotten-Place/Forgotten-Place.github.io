@@ -36,17 +36,17 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="nav-item">
-                    <a href="/" class="nav-link active">Добро пожаловать</a>
+                    <a href="/" class="nav-link {% if active_page == 'index' %}active{% endif %}">Добро пожаловать</a>
                 </li>
                 <li class="nav-item has-children">
-                    <a href="#" class="nav-link nav-parent" data-target="sub-lore">
+                    <a href="#" class="nav-link nav-parent {% if active_page == 'predystoriya' or active_page == 'lor_chernovodska' %}active{% endif %}" data-target="sub-lore">
                         <span>ЛОР Forgotten Place 14</span>
-                        <i class="bi bi-chevron-down nav-arrow"></i>
+                        <i class="bi bi-chevron-down nav-arrow {% if active_page == 'predystoriya' or active_page == 'lor_chernovodska' %}rotated{% endif %}"></i>
                     </a>
-                    <ul class="nav-sublist" id="sub-lore">
-                        <li><a href="#" class="nav-sublink">Предыстория</a></li>
+                    <ul class="nav-sublist {% if active_page == 'predystoriya' or active_page == 'lor_chernovodska' %}open{% endif %}" id="sub-lore">
+                        <li><a href="/predystoriya" class="nav-sublink {% if active_page == 'predystoriya' %}active{% endif %}">Предыстория</a></li>
                         <li><a href="#" class="nav-sublink">Группировки</a></li>
-                        <li><a href="#" class="nav-sublink">ЛОР Черноводска</a></li>
+                        <li><a href="/lor-chernovodska" class="nav-sublink {% if active_page == 'lor_chernovodska' %}active{% endif %}">ЛОР Черноводска</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-children">
@@ -65,7 +65,7 @@
                     </a>
                     <ul class="nav-sublist" id="sub-chars">
                         <li><a href="#" class="nav-sublink">Документация</a></li>
-                        <li><a href="#" class="nav-sublink">Источники</a></li>
+                        <li><a href="#" class="nav-sublink">Наши ресурсы</a></li>
                     </ul>
                 </li>
             </ul>
@@ -81,7 +81,7 @@
                 </div>
                 
                 <section class="content-section">
-                    <h2 class="section-title">Билд является форком S.T.A.L.K.E.R. SS 14 </h2>
+                    <h2 class="section-title">Билд является форком S.T.A.L.K.E.R. SS 14</h2>
                 </section>
                 {% endblock %}
             </div>
@@ -89,7 +89,7 @@
 
         <!-- Правая панель - оглавление -->
         <aside class="toc" id="toc">
-            <div class="toc-header">Table of contents</div>
+            <div class="toc-header">Содержание</div>
             <ul class="toc-list" id="tocList">
                 {% block toc %}
                 <li><a href="#" class="toc-link active">Основная информация</a></li>
