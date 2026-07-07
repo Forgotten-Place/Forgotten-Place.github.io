@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Наир - текстовая фэнтези ролевая игра">
+    <meta name="theme-color" content="#1E1E2E">
+    <title>{% block title %}Наир - Документация{% endblock %}</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=20260315">
+    <link rel="icon" href="{{ url_for('static', filename='photo/favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="bi bi-gem"></i>
+                <span class="logo-text">Наир</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-container">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Поиск...">
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- Левое боковое меню -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">Документация</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="/" class="nav-link active">Добро пожаловать</a>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent" data-target="sub-lore">
+                        <span>Мир Наира</span>
+                        <i class="bi bi-chevron-down nav-arrow"></i>
+                    </a>
+                    <ul class="nav-sublist" id="sub-lore">
+                        <li><a href="#" class="nav-sublink">Концепция</a></li>
+                        <li><a href="#" class="nav-sublink">География</a></li>
+                        <li><a href="#" class="nav-sublink">Расы</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent" data-target="sub-game">
+                        <span>Геймдизайн</span>
+                        <i class="bi bi-chevron-down nav-arrow"></i>
+                    </a>
+                    <ul class="nav-sublist" id="sub-game">
+                        <li><a href="#" class="nav-sublink">Система прокачки</a></li>
+                        <li><a href="#" class="nav-sublink">Магия</a></li>
+                        <li><a href="#" class="nav-sublink">Экономика</a></li>
+                        <li><a href="#" class="nav-sublink">Карта</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent" data-target="sub-chars">
+                        <span>Персонажи</span>
+                        <i class="bi bi-chevron-down nav-arrow"></i>
+                    </a>
+                    <ul class="nav-sublist" id="sub-chars">
+                        <li><a href="#" class="nav-sublink">Анкеты</a></li>
+                        <li><a href="#" class="nav-sublink">Арты</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                {% block content %}
+                <h1 class="page-title">Добро пожаловать</h1>
+                <div class="content-text">
+                    <p>Мультиплеерный партийный Roguelike. Roguelike, в котором одновременно параллельно играют десятки команд по 4 человека. Выберите класс, и отправьтесь в уникальное приключение по лабиринту измерений, адаптируйтесь под уникальные ситуации и развивайте своего персонажа, встречая новых друзей и врагов на своем пути.</p>
+                </div>
+                
+                <section class="content-section">
+                    <h2 class="section-title">Игровой цикл</h2>
+                    <ol class="content-list">
+                        <li><strong>Создание персонажа</strong> — выбор класса, имя, внешность.</li>
+                        <li><strong>Сбор команды</strong> — до 4 человек, в безопасной зоне.</li>
+                        <li><strong>Приключение</strong> — уровни с опасностями и боссами, победа над боссом для перехода на следующий уровень.</li>
+                    </ol>
+                </section>
+                {% endblock %}
+            </div>
+        </main>
+
+        <!-- Правая панель - оглавление -->
+        <aside class="toc" id="toc">
+            <div class="toc-header">Table of contents</div>
+            <ul class="toc-list" id="tocList">
+                {% block toc %}
+                <li><a href="#" class="toc-link active">Игровой цикл</a></li>
+                {% endblock %}
+            </ul>
+        </aside>
+    </div>
+
+    <script>
+        // Раскрытие/сворачивание подменю
+        document.querySelectorAll('.nav-parent').forEach(parent => {
+            parent.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.dataset.target;
+                const sublist = document.getElementById(targetId);
+                const arrow = this.querySelector('.nav-arrow');
+                
+                sublist.classList.toggle('open');
+                arrow.classList.toggle('rotated');
+            });
+        });
+
+        // Выделение активного пункта в меню
+        document.querySelectorAll('.nav-link, .nav-sublink').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link, .nav-sublink').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

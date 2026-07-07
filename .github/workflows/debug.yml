@@ -1,0 +1,21 @@
+name: Debug Build
+
+on: [workflow_dispatch]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      
+    - name: Debug file structure
+      run: |
+        echo "📁 Структура файлов:"
+        find . -type f -name "*.py" -o -name "*.html" -o -name "*.yml" | sort
+        echo ""
+        echo "📁 Содержимое templates:"
+        ls -la templates/ || echo "No templates folder"
+        echo ""
+        echo "📁 Содержимое static:"
+        ls -la static/ || echo "No static folder"

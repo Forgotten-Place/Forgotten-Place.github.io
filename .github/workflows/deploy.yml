@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚀 Checkout
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: 📦 Install Flask
+      run: pip install flask
+      
+    - name: 🔍 Debug file structure
+      run: |
+        echo "=== СТРУКТУРА ФАЙЛОВ ==="
+        find . -type f -name "*.html" -o -name "*.py" | sort
+        echo ""
+        echo "=== ПАПКА TEMPLATES ==="
+        ls -la templates/ || echo "❌ Папка templates не существует!"
+        echo ""
+        echo "=== СОДЕРЖИМОЕ TEMPLATES ==="
+        ls -la templates/*.html 2>/dev/null || echo "Нет HTML файлов в templates"
+      
+    - name: 🏗️ Build site
+      run: python generate_static.py
+      
+    - name: 📤 Deploy
+      run: |
+        cp -r docs/* .
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "github-actions@github.com"
+        git add .
+        git commit -m "🚀 Deploy site" || exit 0
+        git push
