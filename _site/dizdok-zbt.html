@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Forgotten Place 14 - проект в Spase Station 14">
+    <meta name="theme-color" content="#111610">
+    <title>Диздок для ЗБТ - Forgotten Place 14</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/styles.css?v=20260707">
+    <link rel="icon" href="/static/photo/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="header-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="logo">
+                <i class="bi bi-brightness-alt-high"></i>
+                <span class="logo-text">Forgotten Place 14</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-container">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Поиск...">
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- Затемнение фона для мобильного меню -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Левое боковое меню -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">Документация</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="/" class="nav-link ">Добро пожаловать</a>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent " data-target="sub-lore">
+                        <span>ЛОР Forgotten Place 14</span>
+                        <i class="bi bi-chevron-down nav-arrow "></i>
+                    </a>
+                    <ul class="nav-sublist " id="sub-lore">
+                        <li><a href="/predystoriya" class="nav-sublink ">Предыстория</a></li>
+                        <li class="nav-item has-children">
+                            <a href="#" class="nav-sublink nav-parent " data-target="sub-groups">
+                                <span>Группировки</span>
+                                <i class="bi bi-chevron-down nav-arrow " style="font-size:0.7rem;"></i>
+                            </a>
+                            <ul class="nav-sub-sublist " id="sub-groups">
+                                <li><a href="/obshestvo-rassveta" class="nav-sub-sublink ">Общество Рассвета</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/lor-chernovodska" class="nav-sublink ">ЛОР Черноводска</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent active" data-target="sub-game">
+                        <span>Геймдизайн</span>
+                        <i class="bi bi-chevron-down nav-arrow rotated"></i>
+                    </a>
+                    <ul class="nav-sublist open" id="sub-game">
+                        <li><a href="/dizdok-zbt" class="nav-sublink active">Диздок для ЗБТ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent" data-target="sub-chars">
+                        <span>Прочее</span>
+                        <i class="bi bi-chevron-down nav-arrow"></i>
+                    </a>
+                    <ul class="nav-sublist" id="sub-chars">
+                        <li><a href="#" class="nav-sublink">Документация</a></li>
+                        <li><a href="#" class="nav-sublink">Наши ресурсы</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                
+<h1 class="page-title">Диздок для ЗБТ</h1>
+
+<div class="content-text">
+    <h2 class="section-title" id="overview">Общее описание сервера</h2>
+    <p>Forgotten Place — сессионный сервер с длинными раундами, длящимися 5-8 часов, совмещая PVE и PVP. Основной упор делается на РП, атмосферу и взаимодействие фракций в процессе раунда. Будет несколько режимов игры, но первым и основным будет создаваться режим свободной игры без особых целей и условий. Карта будет состоять из нескольких локаций, каждая из которых представляет собой отдельную карту.</p>
+</div>
+
+<div class="content-text">
+    <h2 class="section-title" id="factions">Группировки</h2>
+    
+    <p>Для игры всего будет доступно 3 основных группировки и минорные роли. Но основным контингентом, на который делается упор, будут потерянные — одиночки, исследующие Черноводск и пытающиеся выжить. Они могут взаимодействовать со всеми 3-мя группировками, свободно исследовать карту и преследовать любые личные цели, как объединяясь вместе так и действуя единолично. Основная роль для любителей ПВЕ, РП и взаимодействий.</p>
+    <p>Второй из минорных ролей будут бандиты. Изгои, не принимаемые какой-либо группировкой и живущие лишь за счёт грабежа. Это небольшая группа, с развязанными для грабежа и убийств руками. Они не будут иметь той же силы, которой выделяются полноценные группировки, а их число на раунд будет ограничено. Это чистая антагонистическая роль для любителей пвп активностей и вызова в виде врагов среди всех остальных игроков.</p>
+    
+    <h3 class="section-title" style="font-size:1.2rem; color: var(--text-primary);">Общество Рассвета</h3>
+    <p>Первая из основных группировок — Общество Рассвета. Военизированная группировка, состоящая из выходцев из различных постоянных армий стран СНГ. Они стремятся создать стабильное общество, борются с порождениями феникс-частиц и несут порядок. Живя на старом армейском складе — они имеют самое внушительное вооружение и снаряжение, в отличии от остальных группировок. Однако численность Общества Рассвета не велика из-за того, что отрезана была лишь его часть.</p>
+    <p>Из доступных ролей будут: Командир передовой группы, принимающий все решения, солдат Рассвета, являющейся основной силой группировки, учёные Рассвета, способные изучать артефакты, создавать из них различные изобретения и даже вооружение. Также отдельно выступают гражданские роли: медик, техник и прочие.</p>
+    <p>Основными целями группировки будут: добыча и изучение артефактов, борьба с бандитами, ведение напряжённой политики с Ловчими, что имеют противоположную идеологию, зачистка логова мутантов и истребление особо опасных особей.</p>
+    
+    <h3 class="section-title" style="font-size:1.2rem; color: var(--text-primary);">Ловчие</h3>
+    <p>Второй из основных группировок являются Ловчие — охотники, что верят в то, что случившееся с человечеством — результат мести природы. Они выживают среди агрессивной флоры, верят в её одухотворённость. Порой у некоторых ловчих имеются аномальные способности, они считают, что это дары природы, данные им за счёт приношений и соблюдений её порядков и правил. Они создают одежды из шкур мутантов и даже используют их, а также кости, при создании экипировки. Из оружия они используют старые охотничьи винтовки и дробовики, но порой ловчим удаётся находить и более внушительные образцы вооружения.</p>
+    <p>Из доступных ролей будут: Старший Ловчий — главный охотник группировки, управляющий всеми остальными Ловчими; Ловчие, являющиеся основными участниками группировки, обычно они перемещаются парами или в одиночку, но объединяются при необходимости Старшим Ловчим; Старьевщик, из шкур и останков мутантов способный создавать уникальную экипировку Ловчих; Медиум Ловчих, особенно одарённый природой человек, имеющий множество уникальных способностей.</p>
+    <p>Основными целями группировки будут: Противостояние чужакам в лице Общества Рассвета, приношение пожертвований в виде артефактов Природе взамен на уникальные бонусы.</p>
+    
+    <h3 class="section-title" style="font-size:1.2rem; color: var(--text-primary);">Мусорщики</h3>
+    <p>Последней из основных группировок будут Мусорщики — скитающиеся механики, поддерживающие и выстраивающие связь в разрушенном мире, собирающие уникальное оружие из различных материалов. Мусорщики стараются не конфликтовать с кем бы то ни было, отдавая предпочтение торговле с фракциями и предоставлении своих услуг. Мусорщики являются владельцами единственной работающей в округе ленобласти радиостанции. С её помощью они пытаются связываться с внешним миром и держать выживших в курсе важных событий.</p>
+    <p>Из доступных ролей будут: Ищейки, являющиеся передовыми группами Мусорщиков, что ищут различные материалы и исследуют местность; Механики, занимающиеся созданием уникального оружия Мусорщиков и одновременно с этим совмещающие должность торговцев; Старший Механик, способный создавать редкое и особенно сильное вооружение, а также координирующий Ищеек; Связисты, общающиеся со всеми, кто слышит частоты радиостанции Мусорщиков, держащие их в курсе последних новостей и также связывающиеся таким образом с группировками.</p>
+    <p>Основными целями группировки будут: Торговля с остальными выжившими, поиск материалов для создания всевозможных вещей и патронов.</p>
+</div>
+
+<div class="content-text">
+    <h2 class="section-title" id="map">Карта</h2>
+    <p>Начальной картой для ЗБТ будет одна большая область в виде железнодорожной станции Черноводск-4. К ней будут примыкать базы группировок, что будут более мелкими домашними локациями для всех начинающих.</p>
+    <p>Сама станция Черноводск-4 — обширное место, поражённое агрессивной флорой, но всё ещё представляющее большой интерес. К станции примыкает целое разрушенное одноимённое поселение, здесь есть как небольшие пролески, так и руины промышленных зданий, богатые ценными материалами. В остатках посёлка орудуют бандиты.</p>
+    <p>На карте будут точки интереса, изначально нейтральные. При их захвате точки преобразуются в аванпост той группировки, что её захватила, изменяясь визуально, а некоторые из них могут генерировать ресурсы той группировке, что владеет ими.</p>
+    <p>В будущем планируется нарастание карты другими локациями, что приведёт к её значительному увеличению, однако первостепенной для ЗБТ и тестов будет именно эта.</p>
+</div>
+
+<div class="content-text">
+    <h2 class="section-title" id="economy">Экономика</h2>
+    <p>В начале раунда группировки будут стартовать с ограниченными запасами и материалами, необходимыми для развития. Игроки же на Потерянных будут начинать раунд с уникальным начальным выбранным снаряжением. В игре будет присутствовать элемент начального раскиданного в местах интереса лута. Весь он будет рандомно появляющимся в разных местах каждый раунд, но логично привязанный к своим зонам (материалы возле какой-нибудь заброшенной стройки и т.д.), включая рандомные схроны и останки давно почивших потерянных.</p>
+    <p>Единой валюты, как таковой, не будет, кроме редких случаев в виде осколков — редких небольших чёрных аномальных образований, ставших общей валютой внутри Черноводска. Эти уникальные образования являются осколками артефактов-пустышек, но встречаются довольно редко. В остальном же для потерянных в их лагере будет действовать система торговца с случайным бартером. Для придания ценности каждой вещи он будет предлагать обменные предложения, затрагивая большой спектр различного лута.</p>
+    <p>Большую роль будет играть и торговля между игроками, особенно для потерянных. Группировки будут владеть уникальными вещами, как и иметь возможность их создавать. Некоторые группировки, как механики, могут предоставлять услуги улучшения оружия, оснащения его различными модулями.</p>
+</div>
+
+<div class="content-text">
+    <h2 class="section-title" id="future">Планы на будущее</h2>
+    <p>К концу ЗБТ для нормального функционирования нужно будет создать несколько основополагающих вещей: Карту, что должна будет включать минимум 3 полноценных локации, помимо Черноводска-4, в идеале механику сквозной мета-прокачки аккаунта, уникальные механики каждой из группировок.</p>
+    
+    <h3 class="section-title" style="font-size:1.2rem; color: var(--text-primary);">Мета-прокачка</h3>
+    <p>Планируется создать куда большую ценность жизни, а также оставить интерес в виде мета-прогрессии персонажа. Слоты персонажей будут ограничены на раунд 2-3 и при смерти персонажа — зайти за него будет уже нельзя, лишь за другого.</p>
+    <p>В целом же будет создана общая прокачка, можно сказать, аккаунта. Поделена она будет на 3 ветки: Выживание, Изобретательность и Физ. Подготовку. За разную активность будет капать опыт, открываться уровни и за уровень даваться перки, которые и можно будет тратить на такую прокачку. Будет определённый кап по перкам, так что выкачать все 3 ветки полностью одновременно будет нельзя, но будет возможность сброса веток для перераспределения очков. В купе с возможностью выбрать особенности для персонажей, построенной на системе очков, это даст определенную долю билдостроения.</p>
+</div>
+
+            </div>
+        </main>
+
+        <!-- Правая панель - оглавление -->
+        <aside class="toc" id="toc">
+            <div class="toc-header">Содержание</div>
+            <ul class="toc-list" id="tocList">
+                
+<li><a href="#overview" class="toc-link active">Общее описание</a></li>
+<li><a href="#factions" class="toc-link">Группировки</a></li>
+<li><a href="#map" class="toc-link">Карта</a></li>
+<li><a href="#economy" class="toc-link">Экономика</a></li>
+<li><a href="#future" class="toc-link">Планы на будущее</a></li>
+
+            </ul>
+        </aside>
+    </div>
+
+    <script>
+        // ===== МОБИЛЬНОЕ МЕНЮ =====
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        const menuBtn = document.getElementById('mobileMenuBtn');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        overlay.addEventListener('click', closeSidebar);
+
+        // Закрытие меню при переходе по ссылке
+        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    closeSidebar();
+                }
+            });
+        });
+
+        // ===== РАСКРЫТИЕ/СВОРАЧИВАНИЕ ПОДМЕНЮ =====
+        document.querySelectorAll('.nav-parent').forEach(parent => {
+            parent.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.dataset.target;
+                const sublist = document.getElementById(targetId);
+                const arrow = this.querySelector('.nav-arrow');
+                
+                sublist.classList.toggle('open');
+                arrow.classList.toggle('rotated');
+            });
+        });
+
+        // ===== ВЫДЕЛЕНИЕ АКТИВНОГО ПУНКТА =====
+        document.querySelectorAll('.nav-link, .nav-sublink, .nav-sub-sublink').forEach(link => {
+            link.addEventListener('click', function() {
+                if (this.classList.contains('nav-parent')) return;
+                document.querySelectorAll('.nav-link, .nav-sublink, .nav-sub-sublink').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // ===== ПЛАВНАЯ ПРОКРУТКА К ЯКОРЯМ =====
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // ===== ПОДСВЕТКА TOC ПРИ СКРОЛЛЕ =====
+        const tocLinks = document.querySelectorAll('.toc-link');
+        if (tocLinks.length > 0) {
+            document.addEventListener('scroll', function() {
+                let current = '';
+                tocLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (!href || href === '#') return;
+                    const section = document.querySelector(href);
+                    if (section) {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= 150) {
+                            current = href;
+                        }
+                    }
+                });
+                if (current) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelector(`.toc-link[href="${current}"]`)?.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

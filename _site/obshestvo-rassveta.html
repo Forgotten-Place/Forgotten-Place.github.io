@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Forgotten Place 14 - проект в Spase Station 14">
+    <meta name="theme-color" content="#111610">
+    <title>Общество Рассвета - Forgotten Place 14</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/styles.css?v=20260707">
+    <link rel="icon" href="/static/photo/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="header-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="logo">
+                <i class="bi bi-brightness-alt-high"></i>
+                <span class="logo-text">Forgotten Place 14</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-container">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Поиск...">
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- Затемнение фона для мобильного меню -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Левое боковое меню -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">Документация</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="/" class="nav-link ">Добро пожаловать</a>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent active" data-target="sub-lore">
+                        <span>ЛОР Forgotten Place 14</span>
+                        <i class="bi bi-chevron-down nav-arrow rotated"></i>
+                    </a>
+                    <ul class="nav-sublist open" id="sub-lore">
+                        <li><a href="/predystoriya" class="nav-sublink ">Предыстория</a></li>
+                        <li class="nav-item has-children">
+                            <a href="#" class="nav-sublink nav-parent active" data-target="sub-groups">
+                                <span>Группировки</span>
+                                <i class="bi bi-chevron-down nav-arrow rotated" style="font-size:0.7rem;"></i>
+                            </a>
+                            <ul class="nav-sub-sublist open" id="sub-groups">
+                                <li><a href="/obshestvo-rassveta" class="nav-sub-sublink active">Общество Рассвета</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/lor-chernovodska" class="nav-sublink ">ЛОР Черноводска</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent " data-target="sub-game">
+                        <span>Геймдизайн</span>
+                        <i class="bi bi-chevron-down nav-arrow "></i>
+                    </a>
+                    <ul class="nav-sublist " id="sub-game">
+                        <li><a href="/dizdok-zbt" class="nav-sublink ">Диздок для ЗБТ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-children">
+                    <a href="#" class="nav-link nav-parent" data-target="sub-chars">
+                        <span>Прочее</span>
+                        <i class="bi bi-chevron-down nav-arrow"></i>
+                    </a>
+                    <ul class="nav-sublist" id="sub-chars">
+                        <li><a href="#" class="nav-sublink">Документация</a></li>
+                        <li><a href="#" class="nav-sublink">Наши ресурсы</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                
+<h1 class="page-title">Группировки</h1>
+<p class="content-text" style="color: var(--text-muted); margin-bottom: 32px;">(В РАБОТЕ)</p>
+
+<div class="content-text">
+    <h2 class="section-title" id="rassvet">Общество Рассвета</h2>
+    
+    <div class="faction-tag faction-rassvet">Общество Рассвета</div>
+    
+    <p>Рассвет — осколок от объединения тех небольших остатков регулярных армий СНГ, что выжили после ядерной катастрофы. Оно включает в себя людей с самых разных стран, от Белоруссии до Украины и Казахстана.</p>
+    <p>После того как цивилизация в одночасье схлопнулась в ядерном огне — грызня и локальные конфликты никуда не исчезли. Часть уцелевшей китайской армии двигалась на север, пытаясь найти там убежища от последствий солнечных вспышек, наложенных на ядерную катастрофу. Однако встретилась с военной группой Казахстана и России. Даже после падения правительств и каких-либо политических сил это вылилось в войну. Более того даже часть бывших военных больше начинала походить на криминальных отбросов. Всё это приводило к склокам внутри большого объединения, борьбе за власть в попытках получить господство над остатками человеческого общества. В ходе подобного и родилось Общество Рассвета, уставшие от войны офицеры, объединившиеся вместе.</p>
+    <p>В ходе своего исследования ленобласти руководство Рассвета поймало на радиочастотах Мусорщиков информацию о наличии большой группы выживших на территории Черноводска. Рассвет занял ближайшую засекреченную базу, представляющую из себя просто заброшенный военный склад. К сожалению пройти внутрь Черноводска они успели аккурат перед большим солнечным выбросом по безопасному туннелю, что представлял собой заброшенную дорогу к военной базе. После раската солнечной вспышки туннель был усеян аномалиями, а лес начал свою агрессивную экспансию, окончательно отрезая возможности выхода.</p>
+    
+    <h3 class="section-title faction-rassvet" style="font-size:1.2rem;">Цели и устройство</h3>
+    <p>Рассвет был создан в целях борьбы с последствиями солнечных вспышек, в виде мутантов и агрессивной флоры. А также для создания справедливого и безопасного для всех общества. Любой желающий может присоединиться к Рассвету, в том числе как гражданское лицо. Так в лице рассветовцев многие потерянные Черноводска нашли хотя бы намёк на былую цивилизацию.</p>
+    <p>Управляет группировкой офицерский состав, во главе которого стоит один капитан. Все участники делятся на военных и гражданских. Также имеется и небольшая группа учёных Рассвета, изучающая артефакты и создающая необходимые для общества устройства.</p>
+</div>
+
+<hr class="content-divider">
+
+
+            </div>
+        </main>
+
+        <!-- Правая панель - оглавление -->
+        <aside class="toc" id="toc">
+            <div class="toc-header">Содержание</div>
+            <ul class="toc-list" id="tocList">
+                
+<li><a href="#rassvet" class="toc-link active">Общество Рассвета</a></li>
+
+            </ul>
+        </aside>
+    </div>
+
+    <script>
+        // ===== МОБИЛЬНОЕ МЕНЮ =====
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        const menuBtn = document.getElementById('mobileMenuBtn');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+
+        overlay.addEventListener('click', closeSidebar);
+
+        // Закрытие меню при переходе по ссылке
+        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    closeSidebar();
+                }
+            });
+        });
+
+        // ===== РАСКРЫТИЕ/СВОРАЧИВАНИЕ ПОДМЕНЮ =====
+        document.querySelectorAll('.nav-parent').forEach(parent => {
+            parent.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.dataset.target;
+                const sublist = document.getElementById(targetId);
+                const arrow = this.querySelector('.nav-arrow');
+                
+                sublist.classList.toggle('open');
+                arrow.classList.toggle('rotated');
+            });
+        });
+
+        // ===== ВЫДЕЛЕНИЕ АКТИВНОГО ПУНКТА =====
+        document.querySelectorAll('.nav-link, .nav-sublink, .nav-sub-sublink').forEach(link => {
+            link.addEventListener('click', function() {
+                if (this.classList.contains('nav-parent')) return;
+                document.querySelectorAll('.nav-link, .nav-sublink, .nav-sub-sublink').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // ===== ПЛАВНАЯ ПРОКРУТКА К ЯКОРЯМ =====
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // ===== ПОДСВЕТКА TOC ПРИ СКРОЛЛЕ =====
+        const tocLinks = document.querySelectorAll('.toc-link');
+        if (tocLinks.length > 0) {
+            document.addEventListener('scroll', function() {
+                let current = '';
+                tocLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (!href || href === '#') return;
+                    const section = document.querySelector(href);
+                    if (section) {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= 150) {
+                            current = href;
+                        }
+                    }
+                });
+                if (current) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelector(`.toc-link[href="${current}"]`)?.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
