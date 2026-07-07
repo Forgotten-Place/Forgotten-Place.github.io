@@ -22,6 +22,14 @@ class StaticSiteGenerator:
         @self.app.route('/lor-chernovodska')
         def lor_chernovodska():
             return render_template('lor_chernovodska.html', active_page='lor_chernovodska')
+        
+        @self.app.route('/obshestvo-rassveta')
+        def obshestvo_rassveta():
+            return render_template('obshestvo_rassveta.html', active_page='obshestvo_rassveta')
+        
+        @self.app.route('/dizdok-zbt')
+        def dizdok_zbt():
+            return render_template('dizdok_zbt.html', active_page='dizdok_zbt')
     
     def clean_output_dir(self):
         """Очистка выходной директории"""
@@ -54,6 +62,8 @@ class StaticSiteGenerator:
             ('index.html', 'base.html', {'active_page': 'index'}),
             ('predystoriya.html', 'predystoriya.html', {'active_page': 'predystoriya'}),
             ('lor-chernovodska.html', 'lor_chernovodska.html', {'active_page': 'lor_chernovodska'}),
+            ('obshestvo-rassveta.html', 'obshestvo_rassveta.html', {'active_page': 'obshestvo_rassveta'}),
+            ('dizdok-zbt.html', 'dizdok_zbt.html', {'active_page': 'dizdok_zbt'}),
         ]
         
         with self.app.test_request_context():

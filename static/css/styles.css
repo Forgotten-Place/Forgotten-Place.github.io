@@ -255,6 +255,117 @@ body {
   border-left-color: var(--accent);
 }
 
+/* ===== ВЛОЖЕННОЕ ПОДМЕНЮ (3-й уровень) ===== */
+.nav-sub-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.nav-sub-sublist.open {
+  max-height: 200px;
+}
+
+.nav-sub-sublink {
+  display: block;
+  padding: 5px 20px 5px 52px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.nav-sub-sublink:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.nav-sub-sublink.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* ===== ТЕГ ФРАКЦИИ ===== */
+.faction-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c2b098;
+  margin-bottom: 16px;
+}
+
+.faction-rassvet {
+  background: #42474d;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== КАРТОЧКИ ФРАКЦИЙ ===== */
+.faction-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.faction-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  transition: box-shadow 0.2s;
+}
+
+.faction-card:hover {
+  box-shadow: 0 2px 12px var(--shadow-glow);
+  border-color: var(--card-faction, var(--border));
+}
+
+.faction-card-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.faction-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faction-card-info strong {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.faction-card-hex {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.faction-card-desc {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+/* ===== РАЗДЕЛИТЕЛЬ ===== */
+.content-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 .main-content {
   flex: 1;

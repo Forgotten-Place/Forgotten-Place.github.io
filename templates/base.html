@@ -16,7 +16,7 @@
     <header class="header">
         <div class="header-left">
             <div class="logo">
-                <i class="bi bi-gem"></i>
+                <i class="bi bi-brightness-alt-high"></i>
                 <span class="logo-text">Forgotten Place 14</span>
             </div>
         </div>
@@ -39,23 +39,31 @@
                     <a href="/" class="nav-link {% if active_page == 'index' %}active{% endif %}">Добро пожаловать</a>
                 </li>
                 <li class="nav-item has-children">
-                    <a href="#" class="nav-link nav-parent {% if active_page == 'predystoriya' or active_page == 'lor_chernovodska' %}active{% endif %}" data-target="sub-lore">
+                    <a href="#" class="nav-link nav-parent {% if active_page == 'predystoriya' or active_page == 'obshestvo_rassveta' or active_page == 'lor_chernovodska' %}active{% endif %}" data-target="sub-lore">
                         <span>ЛОР Forgotten Place 14</span>
-                        <i class="bi bi-chevron-down nav-arrow {% if active_page == 'predystoriya' or active_page == 'lor_chernovodska' %}rotated{% endif %}"></i>
+                        <i class="bi bi-chevron-down nav-arrow {% if active_page == 'predystoriya' or active_page == 'obshestvo_rassveta' or active_page == 'lor_chernovodska' %}rotated{% endif %}"></i>
                     </a>
-                    <ul class="nav-sublist {% if active_page == 'predystoriya' or active_page == 'lor_chernovodska' %}open{% endif %}" id="sub-lore">
+                    <ul class="nav-sublist {% if active_page == 'predystoriya' or active_page == 'obshestvo_rassveta' or active_page == 'lor_chernovodska' %}open{% endif %}" id="sub-lore">
                         <li><a href="/predystoriya" class="nav-sublink {% if active_page == 'predystoriya' %}active{% endif %}">Предыстория</a></li>
-                        <li><a href="#" class="nav-sublink">Группировки</a></li>
+                        <li class="nav-item has-children">
+                            <a href="#" class="nav-sublink nav-parent {% if active_page == 'obshestvo_rassveta' %}active{% endif %}" data-target="sub-groups">
+                                <span>Группировки</span>
+                                <i class="bi bi-chevron-down nav-arrow {% if active_page == 'obshestvo_rassveta' %}rotated{% endif %}" style="font-size:0.7rem;"></i>
+                            </a>
+                            <ul class="nav-sub-sublist {% if active_page == 'obshestvo_rassveta' %}open{% endif %}" id="sub-groups">
+                                <li><a href="/obshestvo-rassveta" class="nav-sub-sublink {% if active_page == 'obshestvo_rassveta' %}active{% endif %}">Общество Рассвета</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/lor-chernovodska" class="nav-sublink {% if active_page == 'lor_chernovodska' %}active{% endif %}">ЛОР Черноводска</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-children">
-                    <a href="#" class="nav-link nav-parent" data-target="sub-game">
+                    <a href="#" class="nav-link nav-parent {% if active_page == 'dizdok_zbt' %}active{% endif %}" data-target="sub-game">
                         <span>Геймдизайн</span>
-                        <i class="bi bi-chevron-down nav-arrow"></i>
+                        <i class="bi bi-chevron-down nav-arrow {% if active_page == 'dizdok_zbt' %}rotated{% endif %}"></i>
                     </a>
-                    <ul class="nav-sublist" id="sub-game">
-                        <li><a href="#" class="nav-sublink">Диздок для ЗБТ</a></li>
+                    <ul class="nav-sublist {% if active_page == 'dizdok_zbt' %}open{% endif %}" id="sub-game">
+                        <li><a href="/dizdok-zbt" class="nav-sublink {% if active_page == 'dizdok_zbt' %}active{% endif %}">Диздок для ЗБТ</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-children">
@@ -113,12 +121,52 @@
         });
 
         // Выделение активного пункта в меню
-        document.querySelectorAll('.nav-link, .nav-sublink').forEach(link => {
+        document.querySelectorAll('.nav-link, .nav-sublink, .nav-sub-sublink').forEach(link => {
             link.addEventListener('click', function() {
-                document.querySelectorAll('.nav-link, .nav-sublink').forEach(l => l.classList.remove('active'));
+                if (this.classList.contains('nav-parent')) return;
+                document.querySelectorAll('.nav-link, .nav-sublink, .nav-sub-sublink').forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
             });
         });
+
+        // Плавная прокрутка к якорям в оглавлении
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Подсветка активного пункта оглавления при скролле
+        const tocLinks = document.querySelectorAll('.toc-link');
+        if (tocLinks.length > 0) {
+            document.addEventListener('scroll', function() {
+                let current = '';
+                tocLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (!href || href === '#') return;
+                    const section = document.querySelector(href);
+                    if (section) {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= 150) {
+                            current = href;
+                        }
+                    }
+                });
+                if (current) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    document.querySelector(`.toc-link[href="${current}"]`)?.classList.add('active');
+                }
+            });
+        }
     </script>
 </body>
 </html>
