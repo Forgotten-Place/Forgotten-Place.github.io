@@ -1,11 +1,12 @@
 import os
 import shutil
+import tempfile
 from flask import Flask, render_template
 
 class StaticSiteGenerator:
     def __init__(self):
         self.app = Flask(__name__)
-        self.output_dir = "docs"
+        self.output_dir = "_site"
         self.setup_routes()
     
     def setup_routes(self):
@@ -95,6 +96,27 @@ class StaticSiteGenerator:
         with open(os.path.join(self.output_dir, '.nojekyll'), 'w') as f:
             f.write('')
     
+    def copy_to_root(self):
+        """Копирование сгенерированных файлов в корень проекта"""
+        for item in os.listdir(self.output_dir):
+            src = os.path.join(self.output_dir, item)
+            dst = os.path.join(os.getcwd(), item)
+            
+            # Пропускаем скрытые файлы GitHub и сам генератор
+            if item in ('.git', '.github'):
+                continue
+            
+            if os.path.isdir(src):
+                if os.path.exists(dst):
+                    shutil.rmtree(dst)
+                shutil.copytree(src, dst)
+            else:
+                if os.path.exists(dst):
+                    os.remove(dst)
+                shutil.copy2(src, dst)
+        
+        print(f"✅ Файлы скопированы в корень проекта")
+    
     def generate(self):
         """Основной метод генерации"""
         print("🚀 Запуск генерации статического сайта...")
@@ -121,7 +143,10 @@ class StaticSiteGenerator:
         # Создание служебных файлов
         self.create_nojekyll()
         
-        print(f"🎉 Статический сайт сгенерирован в {self.output_dir}/")
+        # Копирование в корень
+        self.copy_to_root()
+        
+        print(f"🎉 Статический сайт сгенерирован!")
         return True
 
 def main():

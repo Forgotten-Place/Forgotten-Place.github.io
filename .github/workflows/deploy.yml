@@ -5,11 +5,12 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - name: 🚀 Checkout
       uses: actions/checkout@v4
@@ -22,28 +23,13 @@ jobs:
     - name: 📦 Install Flask
       run: pip install flask
       
-    - name: 🔍 Debug file structure
-      run: |
-        echo "=== СТРУКТУРА ФАЙЛОВ ==="
-        find . -type f -name "*.html" -o -name "*.py" | sort
-        echo ""
-        echo "=== ПАПКА TEMPLATES ==="
-        ls -la templates/ || echo "❌ Папка templates не существует!"
-        echo ""
-        echo "=== СОДЕРЖИМОЕ TEMPLATES ==="
-        ls -la templates/*.html 2>/dev/null || echo "Нет HTML файлов в templates"
-      
-    - name: 🏗️ Build site
+    - name: 🏗️ Build static site
       run: python generate_static.py
       
-    - name: 📤 Deploy
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: 📤 Commit and push to main
       run: |
-        cp -r docs/* .
         git config --global user.name "GitHub Actions"
         git config --global user.email "github-actions@github.com"
-        git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git
-        git add .
-        git commit -m "🚀 Deploy site" || exit 0
+        git add -A
+        git diff --quiet && git diff --staged --quiet || git commit -m "🚀 Deploy static site"
         git push
