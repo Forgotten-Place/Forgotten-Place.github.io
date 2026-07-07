@@ -71,6 +71,41 @@ body {
   min-height: 100vh;
 }
 
+/* ===== КНОПКА МОБИЛЬНОГО МЕНЮ ===== */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-right: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== ЗАТЕМНЕНИЕ ФОНА ===== */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 /* ===== ШАПКА ===== */
 .header {
   display: flex;
@@ -579,13 +614,29 @@ blockquote {
 
 /* Мобильные */
 @media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .sidebar-overlay {
+    display: block;
+  }
+  
   .header {
     padding: 0 12px;
     height: 48px;
   }
   
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .logo i {
+    font-size: 1.2rem;
+  }
+  
   .search-container {
-    width: 200px;
+    width: 180px;
   }
   
   .sidebar {
@@ -604,26 +655,67 @@ blockquote {
   }
   
   .main-content {
-    padding: 12px;
-  }
-  
-  .content-wrapper {
     padding: 16px;
   }
   
+  .content-wrapper {
+    padding: 20px;
+    border-radius: 6px;
+  }
+  
   .page-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
   }
   
   .section-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    margin: 24px 0 12px;
+  }
+  
+  .content-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  /* Адаптация карточек фракций */
+  .faction-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .faction-card {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .faction-card-swatch {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .toc {
+    display: none;
   }
 }
 
 /* Малые мобильные */
 @media (max-width: 480px) {
+  .header {
+    padding: 0 8px;
+  }
+  
   .search-container {
-    width: 140px;
+    width: 120px;
+  }
+  
+  .search-input {
+    padding: 6px 8px 6px 30px;
+    font-size: 0.85rem;
+  }
+  
+  .search-icon {
+    left: 8px;
+    font-size: 0.8rem;
   }
   
   .main-content {
@@ -632,9 +724,25 @@ blockquote {
   
   .content-wrapper {
     padding: 12px;
+    border-radius: 4px;
   }
   
   .page-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    padding-bottom: 8px;
+  }
+  
+  .section-title {
+    font-size: 1.05rem;
+    margin: 20px 0 10px;
+  }
+  
+  .content-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .faction-cards {
+    gap: 10px;
   }
 }
