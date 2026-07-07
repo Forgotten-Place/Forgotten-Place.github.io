@@ -4,20 +4,52 @@
 }
 
 :root {
-  --bg-primary: #1E1E2E;
-  --bg-secondary: #181825;
-  --bg-sidebar: #11111B;
-  --bg-header: #4C56B2;
-  --bg-card: #24243A;
-  --bg-search: #3A426E;
-  --text-primary: #E0E0E0;
-  --text-secondary: #A0A0A0;
-  --text-muted: #6C6C8A;
-  --accent: #FF8E3C;
-  --accent-hover: #FFA55C;
-  --border: #2A2A3E;
-  --border-light: #3A3A4E;
-  --shadow: rgba(0, 0, 0, 0.3);
+  /* 🧱 Фоны */
+  --bg-primary: #111610;
+  --bg-card: #1b2219;
+  --bg-sidebar: #0d110b;
+  --bg-header: #0d110b;
+  --bg-search: #1b2219;
+  
+  /* 📝 Текст */
+  --text-primary: #c2b098;
+  --text-secondary: #a88b76;
+  --text-muted: #8a7a6a;
+  --text-heading: #9e582a;
+  
+  /* 🔗 Ссылки */
+  --link: #8a9e9b;
+  --link-hover: #9e582a;
+  --link-visited: #6b827e;
+  
+  /* 🖲 Кнопки */
+  --btn-neutral-bg: #42474d;
+  --btn-neutral-hover: #50584b;
+  --btn-accent-bg: #7d5a4c;
+  --btn-accent-hover: #9e582a;
+  --btn-danger-bg: #4d2424;
+  --btn-danger-hover: #7d3333;
+  --btn-text: #c2b098;
+  
+  /* 💡 Выделения */
+  --quote-bg: #24271a;
+  --quote-border: #385234;
+  --error-text: #7d3333;
+  --error-bg: #1a0e0c;
+  --success-text: #4a5340;
+  --success-bg: #141712;
+  
+  /* 📦 Границы и тени */
+  --border: #3f473d;
+  --border-light: #2a3028;
+  --shadow: rgba(0, 0, 0, 0.6);
+  --shadow-glow: rgba(158, 88, 42, 0.2);
+  
+  /* 🖍 Акценты */
+  --accent: #9e582a;
+  --accent-hover: #c47a3a;
+  --accent-link: #8a9e9b;
+  --accent-tech: #7d5a4c;
 }
 
 * {
@@ -51,6 +83,7 @@ body {
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px var(--shadow);
+  border-bottom: 1px solid var(--border);
 }
 
 .header-left {
@@ -62,13 +95,14 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 .logo i {
   font-size: 1.5rem;
+  color: var(--accent);
 }
 
 .header-right {
@@ -86,7 +120,7 @@ body {
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--text-secondary);
+  color: var(--text-muted);
   font-size: 0.9rem;
   pointer-events: none;
 }
@@ -95,9 +129,9 @@ body {
   width: 100%;
   padding: 8px 12px 8px 36px;
   background: var(--bg-search);
-  border: 1px solid transparent;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 0.9rem;
   font-family: inherit;
   outline: none;
@@ -105,7 +139,7 @@ body {
 }
 
 .search-input::placeholder {
-  color: var(--text-secondary);
+  color: var(--text-muted);
 }
 
 .search-input:focus {
@@ -169,17 +203,18 @@ body {
 
 .sidebar-nav .nav-link:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .sidebar-nav .nav-link.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+  background: rgba(158, 88, 42, 0.08);
   border-left-color: var(--accent);
 }
 
 .nav-arrow {
   font-size: 0.75rem;
+  color: var(--text-muted);
   transition: transform 0.2s;
 }
 
@@ -212,7 +247,7 @@ body {
 
 .nav-sublink:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .nav-sublink.active {
@@ -226,9 +261,14 @@ body {
   padding: 40px;
   max-width: 900px;
   margin: 0 auto;
+  background: var(--bg-primary);
 }
 
 .content-wrapper {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 32px;
+  border: 1px solid var(--border);
   animation: fadeIn 0.3s ease;
 }
 
@@ -239,7 +279,7 @@ body {
 
 /* Заголовки */
 .page-title {
-  color: var(--accent);
+  color: var(--text-heading);
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 24px;
@@ -248,7 +288,7 @@ body {
 }
 
 .section-title {
-  color: var(--accent);
+  color: var(--text-heading);
   font-size: 1.4rem;
   font-weight: 600;
   margin: 32px 0 16px;
@@ -281,7 +321,32 @@ body {
 }
 
 .content-list li strong {
-  color: var(--accent);
+  color: var(--text-heading);
+}
+
+/* Ссылки в контенте */
+.content-wrapper a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.content-wrapper a:hover {
+  color: var(--link-hover);
+}
+
+.content-wrapper a:visited {
+  color: var(--link-visited);
+}
+
+/* Цитаты */
+blockquote {
+  background: var(--quote-bg);
+  border-left: 4px solid var(--quote-border);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--text-primary);
 }
 
 /* ===== ПРАВАЯ ПАНЕЛЬ (TOC) ===== */
@@ -294,6 +359,7 @@ body {
   position: sticky;
   top: 56px;
   overflow-y: auto;
+  background: var(--bg-primary);
 }
 
 .toc-header {
@@ -329,12 +395,52 @@ body {
 
 .toc-link:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .toc-link.active {
   color: var(--accent);
-  background: rgba(255, 142, 60, 0.1);
+  background: rgba(158, 88, 42, 0.1);
+}
+
+/* ===== КНОПКИ ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: var(--btn-text);
+}
+
+.btn-neutral {
+  background: var(--btn-neutral-bg);
+}
+
+.btn-neutral:hover {
+  background: var(--btn-neutral-hover);
+}
+
+.btn-accent {
+  background: var(--btn-accent-bg);
+}
+
+.btn-accent:hover {
+  background: var(--btn-accent-hover);
+}
+
+.btn-danger {
+  background: var(--btn-danger-bg);
+}
+
+.btn-danger:hover {
+  background: var(--btn-danger-hover);
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
@@ -346,8 +452,12 @@ body {
   }
   
   .main-content {
-    padding: 30px;
+    padding: 20px;
     max-width: 100%;
+  }
+  
+  .content-wrapper {
+    padding: 24px;
   }
   
   .sidebar {
@@ -383,7 +493,11 @@ body {
   }
   
   .main-content {
-    padding: 20px;
+    padding: 12px;
+  }
+  
+  .content-wrapper {
+    padding: 16px;
   }
   
   .page-title {
@@ -402,7 +516,11 @@ body {
   }
   
   .main-content {
-    padding: 16px;
+    padding: 8px;
+  }
+  
+  .content-wrapper {
+    padding: 12px;
   }
   
   .page-title {
